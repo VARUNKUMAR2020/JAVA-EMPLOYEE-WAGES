@@ -13,28 +13,34 @@ public class EmployeeWages {
         System.out.println("Welcome to Employee Wage Computation Program");
 
         // To check Employee is present or absent using random
-        int randomCheck = (int) Math.floor(Math.random() * 10) % 3;
-        System.out.println((fullTime == randomCheck || partTime == randomCheck) ? "Employee is Present" : "Employee is Absent");
+        int randomCheck = (int) Math.floor(Math.random() * 10) % 2;
+        String check;
+        System.out.println(check = (fullTime == randomCheck || partTime == randomCheck) ? "Employee is Present"
+                : "Employee is Absent");
 
-        //Working days is 20
-        for(int day=0;day<=numberOfWorkingDays;day++){
-        // TO check Wages of Full & Part Time using switch case
-        switch (randomCheck) {
-            case fullTime:
-                employeehours = 8;
-                break;
-            case partTime:
-                employeehours = 4;
-                break;
-            default:
-                employeehours = 0;
+        // Working hours is 100
+        int hoursInMonth = 100, workingDays = 0;
+        while (employeehours <= hoursInMonth && workingDays < numberOfWorkingDays) {
+            workingDays++;
+            int optioncheck = (int) Math.floor(Math.random() * 10) % 3;
+            // TO check Wages of Full & Part Time using switch case
+            switch (optioncheck) {
+                case fullTime:
+                    employeehours = 8;
+                    break;
+                case partTime:
+                    employeehours = 4;
+                    break;
+                default:
+                    employeehours = 0;
 
+            }
+            totalEmployeeWages += employeeRate;
+            System.out.println("Day:" +workingDays + "  Hours: " + employeeRate);
         }
-        employeeWages = employeehours * employeeRate;
-        totalEmployeeWages += employeeRate;
-        System.out.println("Employee Wage is " + employeeWages);
-    }
-    System.out.println("Total Employee Wage is " +totalEmployeeWages );
 
+        int totalEmpWages = totalEmployeeWages * employeeRate;
+        System.out.println("Total employee wages is " + totalEmpWages);
     }
+
 }
