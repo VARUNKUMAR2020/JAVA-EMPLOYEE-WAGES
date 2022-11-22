@@ -1,5 +1,7 @@
 package com.employeewages;
 
+import java.util.*;
+
 public class EmployeeWages {
     public static final int partTime = 2;
     public static final int fullTime = 1;
@@ -9,7 +11,8 @@ public class EmployeeWages {
     public static int numberOfWorkingDays = 20;
     public static int totalEmployeeWages = 0;
 
-    public static void employeeWagesCalculation(String companyName, int employeeRate, int numberOfWorkingDays, int employeehours) {
+    public static void employeeWagesCalculation(String companyName, int employeeRate, int numberOfWorkingDays,
+            int employeehours) {
         System.out.println(companyName + " Employee Wage Computation :");
         // To check Employee is present or absent using random
         int randomCheck = (int) Math.floor(Math.random() * 10) % 2;
@@ -45,9 +48,16 @@ public class EmployeeWages {
 
     public static void main(String[] args) {
         System.out.println("Welcome to Employee Wage Computation Program");
-        employeeWagesCalculation("Company A",20,20,100);
-        employeeWagesCalculation("Company B",52,20,80);
-        employeeWagesCalculation("Company C",22,26,60);
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter the Company Name: ");
+        String companyName = input.nextLine();
+        System.out.println("Enter the Employee Rate: ");
+        int rate = input.nextInt();
+        System.out.println("Enter the number of working days: ");
+        int workingDays = input.nextInt();
+        System.out.println("Enter the employee hours: ");
+        int hours = input.nextInt();
+        employeeWagesCalculation(companyName, rate, workingDays, hours);
 
     }
 
